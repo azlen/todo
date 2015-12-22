@@ -83,6 +83,14 @@
 		<canvas id="c" width="1000px" height="300px"></canvas>
 	</div>
 	<script>
+		/*
+			- make marker scroll
+			- make undo/redo buttons
+			- fix proportions
+			- add canvas and update inside todolist items
+			- make it so you can add todo items properly
+		*/
+
 		var canvas = document.querySelector('#c');
 		var res = 2
 		canvas.width = canvas.width * res;
@@ -122,6 +130,10 @@
 		canvas.addEventListener('touchstart', press)
 		canvas.addEventListener('touchmove', move)
 		canvas.addEventListener('touchend', release)
+		canvas.parentElement.addEventListener('scroll', function(){
+			var marker = document.querySelector('.marker')
+			marker.style.left = canvas.parentElement.scrollLeft / (canvas.offsetWidth / marker.offsetWidth);
+		})
 	</script>
 </body>
 </html>
