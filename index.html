@@ -148,7 +148,6 @@
 
 		var todolist = []
 		function additem(){
-			document.querySelector('#overlay').classList.add('hidden')
 			var item = document.createElement('div')
 			item.classList.add('item')
 			var canvas = document.createElement('canvas')
@@ -157,6 +156,17 @@
 			document.querySelector('#items').appendChild(item)
 			canvas.width = item.offsetWidth
 			canvas.height = item.offsetHeight
+
+			edititem(todolist.length-1)
+		}
+		function edititem(i){
+			item = todolist[i]
+			var marker = document.createElement('div')
+			marker.classList.add('marker')
+			item.element.appendChild(marker)
+			item.element.classList.add('selected')
+			document.querySelector('#overlay').classList.remove('hidden')
+			document.querySelector('#overlay').scrollLeft = 0
 		}
 	</script>
 </body>
