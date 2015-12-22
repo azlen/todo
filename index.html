@@ -102,14 +102,17 @@
 			ctx.beginPath();
 			drawing = true;
 			addpoint(e);
+			e.preventDefault()
 		}
 		function move(e){
 			if(drawing == true){
 				addpoint(e);
 			}
+			e.preventDefault()
 		}
 		function release(e){
 			drawing = false;
+			e.preventDefault()
 		}
 		canvas.addEventListener('mousedown', press)
 		canvas.addEventListener('mousemove', move)
